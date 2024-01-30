@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv").config();
 const app = express();
 const user = require("./models/User");
+const product = require ("./models/Product");
 const bcrypt = require('bcryptjs');
 
 app.use(cors());
@@ -79,6 +80,25 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ error: 'Erreur de connexion, ' });
   }
 });
+
+
+
+
+// Product Api
+// Save Product
+
+app.post("/uploadProduct",async (req,res)=>{
+  try{
+    console.log(req.body)
+    const data = new product(req.body)
+    const datasave = await data.save()
+    
+    res.status(200).json({ message: 'Produit enregistré avec succès', product: datasave });
+  }catch(error) {
+    console.error("Erreur lors de l'enregistrement du produit :", error);
+    res.status(500).json({ error: 'Une erreur est survenue lors de l\'enregistrement du produit' });
+  }
+})
 
 
 
