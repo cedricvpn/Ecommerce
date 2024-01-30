@@ -7,7 +7,7 @@ const user = require("./models/User");
 const bcrypt = require('bcryptjs');
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit : "10mb"}));
 
 const PORT = process.env.PORT || 8080;
 //MONGODB CONNECTION
@@ -79,5 +79,7 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ error: 'Erreur de connexion, ' });
   }
 });
+
+
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));

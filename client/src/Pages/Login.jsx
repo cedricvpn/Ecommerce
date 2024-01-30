@@ -17,7 +17,7 @@ const Login = () => {
   });
   const navigate = useNavigate();
 
-  const userData = useSelector((state) => state.user);
+  const userData = useSelector((state) => state.user );
   console.log(userData);
 
   const dispatch = useDispatch();
@@ -48,12 +48,13 @@ const Login = () => {
 
         if (response.status === 200) {
           setError("");
-          dispatch(loginRedux(response.data));
+          dispatch(loginRedux(response));
           console.log("Connexion réussie");
           toast.success("Connextion reussie");
           console.log(response);
           navigate("/");
         }
+        console.log(userData)
       } catch (error) {
         if (
           error.response &&
@@ -107,7 +108,7 @@ const Login = () => {
             </span>
           </div>
 
-          <button className="w-full max-w-[150px] m-auto bg-green-500 hover:bg-green-600 text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+          <button className="w-full max-w-[150px] m-auto bg-green-500 hover:bg-green-600 text-white text-xl font-bold text-center py-1 rounded-full mt-4">
             Login
           </button>
         </form>

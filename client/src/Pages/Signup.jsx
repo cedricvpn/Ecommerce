@@ -167,7 +167,7 @@ const Signup = () => {
             </span>
           </div>
 
-          <button className="w-full max-w-[150px] m-auto bg-green-500 hover:bg-green-600 text-white text-xl font-medium text-center py-1 rounded-full mt-4">
+          <button className="w-full max-w-[150px] m-auto bg-green-500 hover:bg-green-600 text-white text-xl font-bold text-center py-1 rounded-full mt-4">
             Sign up
           </button>
         </form>
