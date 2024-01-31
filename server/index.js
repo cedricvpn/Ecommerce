@@ -101,5 +101,13 @@ app.post("/uploadProduct",async (req,res)=>{
 })
 
 
+//Display product
+
+app.get("/product" , async(req, res)=>{
+  const datap = await product.find({})
+  res.send(JSON.stringify(datap))
+})
+
+
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));

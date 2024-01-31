@@ -38,7 +38,7 @@ const NewProduct = () => {
          if (response.status === 200) {
           setError('')
           toast.success('Données enregistrées avec succès');
-          navigate('/')
+          //navigate('/')
         }
       } catch (error) {
         if (error.response && error.response.data && error.response.data.error) {
@@ -71,10 +71,10 @@ const uploadImage = async(e) =>{
     <div className=" p-5">
       <form className="m-auto w-full max-w-lg flex flex-col p-3 bg-white border rounded" onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
-        <input type={"text"} name="name" className="bg-slate-300 my-2 p-1" onChange={handleChange}/>
+        <input type={"text"} name="name" className="bg-slate-300 my-2 p-1" value={data.name} onChange={handleChange}/>
  
         <label htmlFor="Category">Category</label>
-        <select className="bg-slate-300 my-2" id="category" name="category" onChange={handleChange} >
+        <select className="bg-slate-300 my-2" id="category" name="category" value={data.category} onChange={handleChange} >
           <option value={"others"}>Select Category</option>
           <option value={"Computer"}>Computers</option>
           <option value={"Phones"}>Phones</option>
@@ -93,10 +93,10 @@ const uploadImage = async(e) =>{
         </label>
 
         <label htmlFor="Price" className="my-1">Price</label>
-        <input type={"text"} className="bg-slate-300 my-2 p-1" name="price" onChange={handleChange}/>
+        <input type={"text"} className="bg-slate-300 my-2 p-1" name="price" value={data.price} onChange={handleChange}/>
 
         <label htmlFor="description">Description</label>
-        <textarea rows={3} className="bg-slate-300 my-2 p-1 resize-none" name="description" onChange={handleChange}/>
+        <textarea rows={3} className="bg-slate-300 my-2 p-1 resize-none" name="description" value={data.description} onChange={handleChange}/>
 
         <button className="w-full max-w-[150px] m-auto bg-green-500 hover:bg-green-600 text-white text-xl font-bold text-center py-1 rounded-full mt-4">Save</button>
       </form>

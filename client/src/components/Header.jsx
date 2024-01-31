@@ -50,9 +50,13 @@ const Header = () => {
             </div>
             {showMenu && (
               <div className="absolute right-2 bg-white py-3  shadow drop-shadow-md flex flex-col ">
-                <Link to={"NewProduct"} className="whitespace-nowrap cursor-pointer px-2">New Product</Link>
+
+              {
+                userData.email === import.meta.env.VITE_REACT_APP_EMAIL && <Link to={"NewProduct"} className="whitespace-nowrap cursor-pointer px-2">New Product</Link>
+              }
+                
                    {
-                    userData.loggedIn ? <p className="cursor-pointer px-2 " onClick={handleLogout}>Logout</p> : <Link to={"Login"} className="whitespace-nowrap cursor-pointer px-2">Login</Link>
+                    userData.loggedIn ? <p className="cursor-pointer px-2" onClick={handleLogout}>Logout ({userData.firstName})</p> : <Link to={"Login"} className="whitespace-nowrap cursor-pointer px-2">Login</Link>
                    }
 
                 
