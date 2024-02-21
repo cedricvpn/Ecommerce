@@ -12,6 +12,8 @@ const Home = () => {
   console.log(productData);
   const homeProductCartList = productData.slice(0, 4);
   const homeComputers = productData.filter((el) => el.category === "Computer");
+  const homePhones = productData.filter((el) => el.category ==="Phones")
+  const homeToolkit = productData.filter((el) => el.category === "Toolkit")
   console.log(homeComputers);
 
   useEffect(() => {
@@ -99,6 +101,50 @@ const Home = () => {
           })}
         </div>
       </section>
+
+      {/* Section Telephone */}
+      <section>
+        <h2 className="font-bold text-2xl text-green-900 pt-2 mt-3">Our Phones</h2>
+        <div className="flex gap-5">
+        {!isLoading ?(
+          <div className="flex justify-center items-center h-screen">
+            <BeatLoader color={"#62CB64"} loading={!isLoading} />
+          </div>
+        ):homePhones.map((el, index) => {
+          return (
+            <CardCategory
+              key={index}
+              image={el.image}
+              name={el.name}
+              category={el.category}
+              price={el.price}
+            />
+          );
+        })}
+      </div>
+      </section>
+
+       {/* Section Toolkit */}
+       <section>
+       <h2 className="font-bold text-2xl text-green-900 pt-2 mt-3">Toolkits</h2>
+       <div className="flex gap-5">
+       {!isLoading ?(
+         <div className="flex justify-center items-center h-screen">
+           <BeatLoader color={"#62CB64"} loading={!isLoading} />
+         </div>
+       ):homeToolkit.map((el, index) => {
+         return (
+           <CardCategory
+             key={index}
+             image={el.image}
+             name={el.name}
+             category={el.category}
+             price={el.price}
+           />
+         );
+       })}
+     </div>
+     </section>
     </div>
   );
 };

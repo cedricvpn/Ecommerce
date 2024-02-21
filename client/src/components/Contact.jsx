@@ -23,10 +23,10 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto px-4">
-      <h1 className="text-3xl font-semibold text-center my-8">Contactez-nous</h1>
+      <h1 className="text-3xl font-semibold text-center my-8">Contact Us</h1>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <div className="mb-6">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nom</label>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
           <input
             type="text"
             name="name"
@@ -65,7 +65,7 @@ const Contact = () => {
         </div>
 
         <button type="submit" className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-          Envoyer
+          Send
         </button>
       </form>
     </div>
